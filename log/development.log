@@ -5,3 +5,17 @@ Processing by WelcomeController#index as HTML
 Completed 200 OK in 774ms (Views: 276.5ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-06-26 16:29:15 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 369ms (Views: 170.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-26 16:32:39 -0300
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 319ms (Views: 121.7ms)
+
+
