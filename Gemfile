@@ -12,6 +12,8 @@ gem 'bootstrap-will_paginate', '0.0.10'
 
 gem 'rails-controller-testing'
 
+gem 'stock_quote'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.1'
 
