@@ -598,3 +598,1494 @@ Processing by UsersController#my_portfolio as HTML
 Completed 200 OK in 36ms (Views: 34.2ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-06-29 15:01:50 -0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+Completed 401 Unauthorized in 44ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-29 15:01:51 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (56.0ms)
+Completed 200 OK in 1126ms (Views: 1100.5ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-06-29 15:02:01 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XdQkabFEObEVrbe/SRvsdOAVUr3cDmF+1rljbnmX8zzPgtA5NtpPu5/WXOkapLyIFKF/xeQz8eyu6fXb6Cmkmw==", "user"=>{"email"=>"tavioalves@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "tavioalves@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (15.4ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-06-29 18:02:01.874328"], ["last_sign_in_at", "2017-06-27 20:21:51.463604"], ["sign_in_count", 5], ["updated_at", "2017-06-29 18:02:01.875127"], ["id", 1]]
+  [1m[35m (77.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 865ms (ActiveRecord: 93.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-29 15:02:02 -0300
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 59ms (Views: 24.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/search_stocks" for 127.0.0.1 at 2017-06-29 15:02:11 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/search_stocks"):
+  
+actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.1) lib/rails/engine.rb:522:in `call'
+puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/search_stocks" for 127.0.0.1 at 2017-06-29 15:02:29 -0300
+Processing by StocksController#search as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::MissingTemplate (Missing template stocks/search, application/search with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/ti-proex/ruby_projects/section3_project/finance-tracker/app/views"
+  * "/var/lib/gems/2.3.0/gems/devise-bootstrap-views-0.0.11/app/views"
+  * "/var/lib/gems/2.3.0/gems/twitter-bootstrap-rails-4.0.0/app/views"
+  * "/var/lib/gems/2.3.0/gems/devise-4.3.0/app/views"
+):
+  
+app/controllers/stocks_controller.rb:13:in `search'
+Started GET "/search_stocks?stock=GOOG" for 127.0.0.1 at 2017-06-29 15:03:03 -0300
+Processing by StocksController#search as HTML
+  Parameters: {"stock"=>"GOOG"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+Completed 200 OK in 5652ms (Views: 0.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-29 15:23:38 -0300
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 495ms (Views: 355.6ms | ActiveRecord: 26.0ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-06-29 15:23:56 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered stocks/_lookup.html.erb (0.6ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 17ms (Views: 15.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-06-29 15:26:50 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (12.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered stocks/_lookup.html.erb (0.8ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 42ms (Views: 26.4ms | ActiveRecord: 12.5ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-06-29 15:27:02 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered stocks/_lookup.html.erb (1.0ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 26ms (Views: 23.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-06-29 15:27:32 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered stocks/_lookup.html.erb (0.8ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 27ms (Views: 25.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-06-29 15:27:33 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered stocks/_lookup.html.erb (0.6ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 23ms (Views: 21.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-06-29 15:28:20 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered stocks/_lookup.html.erb (0.5ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 19ms (Views: 17.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-06-29 15:51:10 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered stocks/_lookup.html.erb (1.9ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 881ms (Views: 870.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:51:15 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (17.4ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (2173.9ms) [cache miss]
+Completed 200 OK in 7008ms (Views: 2180.3ms | ActiveRecord: 18.6ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:51:23 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.4ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-06-29 15:51:25 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered stocks/_lookup.html.erb (0.6ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 35ms (Views: 25.2ms | ActiveRecord: 7.0ms)
+
+
+  Rendered stocks/_lookup.html.erb (2381.0ms) [cache miss]
+Completed 200 OK in 6066ms (Views: 2383.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-06-29 15:51:37 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered stocks/_lookup.html.erb (0.6ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 38ms (Views: 22.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:51:40 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (2590.6ms) [cache miss]
+Completed 200 OK in 6206ms (Views: 2596.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:51:46 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (3353.9ms) [cache miss]
+Completed 200 OK in 7238ms (Views: 3358.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:51:53 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.7ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:52:02 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:52:02 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.3ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:52:02 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:52:03 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.4ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (3825.8ms) [cache miss]
+Completed 200 OK in 10386ms (Views: 3829.3ms | ActiveRecord: 1.0ms)
+
+
+  Rendered stocks/_lookup.html.erb (4164.8ms) [cache miss]
+Completed 200 OK in 7597ms (Views: 4168.9ms | ActiveRecord: 0.7ms)
+
+
+  Rendered stocks/_lookup.html.erb (4786.1ms) [cache miss]
+Completed 200 OK in 8555ms (Views: 4790.0ms | ActiveRecord: 0.9ms)
+
+
+  Rendered stocks/_lookup.html.erb (4479.2ms) [cache miss]
+Completed 200 OK in 8547ms (Views: 4483.2ms | ActiveRecord: 1.2ms)
+
+
+  Rendered stocks/_lookup.html.erb (4596.6ms) [cache miss]
+Completed 200 OK in 9419ms (Views: 4600.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-06-29 15:54:57 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered stocks/_lookup.html.erb (1.0ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (7.8ms)
+Completed 500 Internal Server Error in 650ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 8, expected 1)):
+     7:     <title><%= content_for?(:title) ? yield(:title) : "FinanceTracker" %></title>
+     8:     <%= csrf_meta_tags %>
+     9: 
+    10:     <%= stylesheet_link_tag "application", :media => "all" %>
+    11:     
+    12:     <%= javascript_include_tag "application" %>
+    13: 
+  
+app/assets/javascripts/application.js:15
+app/views/layouts/application.html.erb:10:in `_app_views_layouts_application_html_erb__2628226540253622744_70325259439380'
+Started GET "/" for 127.0.0.1 at 2017-06-29 15:55:05 -0300
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 8, expected 1)):
+     7:     <title><%= content_for?(:title) ? yield(:title) : "FinanceTracker" %></title>
+     8:     <%= csrf_meta_tags %>
+     9: 
+    10:     <%= stylesheet_link_tag "application", :media => "all" %>
+    11:     
+    12:     <%= javascript_include_tag "application" %>
+    13: 
+  
+app/assets/javascripts/application.js:15
+app/views/layouts/application.html.erb:10:in `_app_views_layouts_application_html_erb__2628226540253622744_47971840'
+Started GET "/" for 127.0.0.1 at 2017-06-29 15:55:32 -0300
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 531ms (Views: 528.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-06-29 15:55:39 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered stocks/_lookup.html.erb (0.5ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 23ms (Views: 21.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:55:45 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (2481.5ms) [cache miss]
+Completed 200 OK in 6611ms (Views: 2484.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:55:52 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (2504.6ms) [cache miss]
+Completed 200 OK in 6186ms (Views: 2507.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:55:58 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (2320.4ms) [cache miss]
+Completed 200 OK in 6423ms (Views: 2323.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:56:05 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:56:10 -0300
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:56:10 -0300
+Processing by StocksController#search as JS
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:56:10 -0300
+Processing by StocksController#search as JS
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:56:10 -0300
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+Processing by StocksController#search as JS
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.3ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (2403.7ms) [cache miss]
+Completed 200 OK in 5929ms (Views: 2406.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:56:11 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (2233.4ms) [cache miss]
+Completed 200 OK in 5800ms (Views: 2238.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:56:16 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (2539.9ms) [cache miss]
+Completed 200 OK in 5918ms (Views: 2542.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:56:17 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (2569.7ms) [cache miss]
+Completed 200 OK in 6377ms (Views: 2572.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:56:17 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (4639.1ms) [cache miss]
+Completed 200 OK in 10570ms (Views: 4642.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:56:21 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (7188.7ms) [cache miss]
+Completed 200 OK in 11156ms (Views: 7191.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:56:21 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.3ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (2248.7ms) [cache miss]
+Completed 200 OK in 6270ms (Views: 2252.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:56:22 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.4ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (2280.3ms) [cache miss]
+Completed 200 OK in 6022ms (Views: 2283.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:56:23 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (2425.1ms) [cache miss]
+Completed 200 OK in 6130ms (Views: 2429.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:56:23 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (2420.5ms) [cache miss]
+Completed 200 OK in 6137ms (Views: 2425.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:56:27 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (2516.4ms) [cache miss]
+Completed 200 OK in 6258ms (Views: 2521.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:56:27 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (2141.7ms) [cache miss]
+Completed 200 OK in 5937ms (Views: 2145.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:56:29 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (2508.7ms) [cache miss]
+Completed 200 OK in 8330ms (Views: 2513.0ms | ActiveRecord: 0.8ms)
+
+
+  Rendered stocks/_lookup.html.erb (2996.5ms) [cache miss]
+Completed 200 OK in 9134ms (Views: 3000.8ms | ActiveRecord: 0.3ms)
+
+
+  Rendered stocks/_lookup.html.erb (2340.6ms) [cache miss]
+Completed 200 OK in 5889ms (Views: 2344.4ms | ActiveRecord: 0.4ms)
+
+
+  Rendered stocks/_lookup.html.erb (2341.4ms) [cache miss]
+Completed 200 OK in 6360ms (Views: 2345.0ms | ActiveRecord: 0.4ms)
+
+
+  Rendered stocks/_lookup.html.erb (3512.5ms) [cache miss]
+Completed 200 OK in 8706ms (Views: 3517.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-06-29 15:58:10 -0300
+Processing by UsersController#my_portfolio as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-06-29 15:58:11 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (195.5ms)
+Completed 200 OK in 566ms (Views: 483.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-06-29 15:58:18 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QQJ+yW8Ic0L8dFVEcQmWgIJBW+4msRrxlCQyq9LG1SE+QCiBa3dyOKQQwnCXKZJSVYpEJmmpC5ay65u4us20nw==", "user"=>{"email"=>"tavioalves@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "tavioalves@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-06-29 18:58:19.190804"], ["last_sign_in_at", "2017-06-29 18:02:01.874328"], ["sign_in_count", 6], ["updated_at", "2017-06-29 18:58:19.191643"], ["id", 1]]
+  [1m[35m (68.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/my_portfolio
+Completed 302 Found in 380ms (ActiveRecord: 69.1ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-06-29 15:58:19 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered stocks/_lookup.html.erb (1.0ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 30ms (Views: 28.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:58:26 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:58:26 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:58:29 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:58:29 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (2094.1ms) [cache miss]
+Completed 200 OK in 5849ms (Views: 2100.8ms | ActiveRecord: 0.3ms)
+
+
+  Rendered stocks/_lookup.html.erb (2336.2ms) [cache miss]
+Completed 200 OK in 6087ms (Views: 2363.5ms | ActiveRecord: 0.3ms)
+
+
+  Rendered stocks/_lookup.html.erb (2444.4ms) [cache miss]
+Completed 200 OK in 6148ms (Views: 2453.5ms | ActiveRecord: 0.3ms)
+
+
+  Rendered stocks/_lookup.html.erb (2516.7ms) [cache miss]
+Completed 200 OK in 7873ms (Views: 2520.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=AAPL&button=" for 127.0.0.1 at 2017-06-29 15:58:46 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"AAPL", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "AAPL"], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=AAPL&button=" for 127.0.0.1 at 2017-06-29 15:58:46 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"AAPL", "button"=>""}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "AAPL"], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=AAPL&button=" for 127.0.0.1 at 2017-06-29 15:58:48 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"AAPL", "button"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=AAPL&button=" for 127.0.0.1 at 2017-06-29 15:58:48 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"AAPL", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "AAPL"], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "AAPL"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (2340.9ms) [cache miss]
+Completed 200 OK in 6114ms (Views: 2345.5ms | ActiveRecord: 0.2ms)
+
+
+  Rendered stocks/_lookup.html.erb (2571.2ms) [cache miss]
+Completed 200 OK in 6317ms (Views: 2575.1ms | ActiveRecord: 0.3ms)
+
+
+  Rendered stocks/_lookup.html.erb (3262.7ms) [cache miss]
+Completed 200 OK in 7079ms (Views: 3267.9ms | ActiveRecord: 0.4ms)
+
+
+  Rendered stocks/_lookup.html.erb (4221.7ms) [cache miss]
+Completed 200 OK in 9423ms (Views: 4224.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-06-29 15:58:57 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered stocks/_lookup.html.erb (0.9ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 42ms (Views: 40.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=FB&button=" for 127.0.0.1 at 2017-06-29 15:59:02 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"FB", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=FB&button=" for 127.0.0.1 at 2017-06-29 15:59:02 -0300
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "FB"], ["LIMIT", 1]]
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"FB", "button"=>""}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "FB"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (2405.3ms) [cache miss]
+Completed 200 OK in 5948ms (Views: 2410.9ms | ActiveRecord: 0.2ms)
+
+
+  Rendered stocks/_lookup.html.erb (3645.1ms) [cache miss]
+Completed 200 OK in 7691ms (Views: 3647.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=FB&button=" for 127.0.0.1 at 2017-06-29 15:59:12 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"FB", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "FB"], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=FB&button=" for 127.0.0.1 at 2017-06-29 15:59:12 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"FB", "button"=>""}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "FB"], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:59:35 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:59:35 -0300
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:59:38 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (3100.7ms) [cache miss]
+Completed 200 OK in 6869ms (Views: 3105.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 15:59:43 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (2524.2ms) [cache miss]
+Completed 200 OK in 6411ms (Views: 2527.3ms | ActiveRecord: 0.3ms)
+
+
+  Rendered stocks/_lookup.html.erb (5427.7ms) [cache miss]
+Completed 200 OK in 9596ms (Views: 5430.4ms | ActiveRecord: 0.5ms)
+
+
+  Rendered stocks/_lookup.html.erb (2629.5ms) [cache miss]
+Completed 200 OK in 9145ms (Views: 2635.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-06-29 15:59:55 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered stocks/_lookup.html.erb (0.8ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 46ms (Views: 43.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-06-29 15:59:58 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered stocks/_lookup.html.erb (0.7ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 22ms (Views: 20.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=FB&button=" for 127.0.0.1 at 2017-06-29 16:00:02 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"FB", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "FB"], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=FB&button=" for 127.0.0.1 at 2017-06-29 16:00:02 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"FB", "button"=>""}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "FB"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (2576.0ms) [cache miss]
+Completed 200 OK in 7339ms (Views: 2578.7ms | ActiveRecord: 0.3ms)
+
+
+  Rendered stocks/_lookup.html.erb (3896.0ms) [cache miss]
+Completed 200 OK in 7815ms (Views: 3898.8ms | ActiveRecord: 0.3ms)
+
+
+  Rendered stocks/_lookup.html.erb (60005.9ms)
+Completed 500 Internal Server Error in 63499ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (Timed out connecting to server):
+    18: 	<div id="stock-lookup-results" class="well results-block">
+    19: 		<strong>Symbol:</strong> <%= @stock.ticker %>
+    20: 		<strong>Namel:</strong> <%= @stock.name %>
+    21: 		<strong>Price:</strong> <%= @stock.price %>
+    22: 	</div>
+    23: <% end %>
+  
+app/models/stock.rb:17:in `price'
+app/views/stocks/_lookup.html.erb:21:in `_app_views_stocks__lookup_html_erb__3610160792517742819_70325126482460'
+app/controllers/stocks_controller.rb:11:in `search'
+Completed 500 Internal Server Error in 63952ms (ActiveRecord: 0.3ms)
+
+
+  
+RestClient::Exceptions::OpenTimeout (Timed out connecting to server):
+  
+app/models/stock.rb:20:in `price'
+app/models/stock.rb:12:in `new_from_lookup'
+app/controllers/stocks_controller.rb:6:in `search'
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=AAPL&button=" for 127.0.0.1 at 2017-06-29 16:00:16 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"AAPL", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "AAPL"], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=AAPL&button=" for 127.0.0.1 at 2017-06-29 16:00:16 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"AAPL", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "AAPL"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (4166.6ms) [cache miss]
+Completed 200 OK in 8136ms (Views: 4172.2ms | ActiveRecord: 0.4ms)
+
+
+  Rendered stocks/_lookup.html.erb (2381.7ms) [cache miss]
+Completed 200 OK in 8518ms (Views: 2388.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-06-29 16:00:28 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered stocks/_lookup.html.erb (0.9ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 25ms (Views: 22.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-06-29 16:12:25 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered stocks/_lookup.html.erb (1.8ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 290ms (Views: 265.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=AAPL&button=" for 127.0.0.1 at 2017-06-29 16:12:31 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"AAPL", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "AAPL"], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=AAPL&button=" for 127.0.0.1 at 2017-06-29 16:12:31 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"AAPL", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "AAPL"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (2233.1ms) [cache miss]
+Completed 200 OK in 6510ms (Views: 2238.9ms | ActiveRecord: 0.3ms)
+
+
+  Rendered stocks/_lookup.html.erb (2126.1ms) [cache miss]
+Completed 200 OK in 6645ms (Views: 2136.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 16:12:43 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 16:12:43 -0300
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Processing by StocksController#search as JS
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.3ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (2230.9ms) [cache miss]
+Completed 200 OK in 5566ms (Views: 2238.2ms | ActiveRecord: 0.4ms)
+
+
+  Rendered stocks/_lookup.html.erb (2489.0ms) [cache miss]
+Completed 200 OK in 5937ms (Views: 2493.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=FB&button=" for 127.0.0.1 at 2017-06-29 16:12:54 -0300
+Processing by StocksController#search as JS
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=FB&button=" for 127.0.0.1 at 2017-06-29 16:12:54 -0300
+  Parameters: {"utf8"=>"✓", "stock"=>"FB", "button"=>""}
+Processing by StocksController#search as JS
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Parameters: {"utf8"=>"✓", "stock"=>"FB", "button"=>""}
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "FB"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "FB"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (2228.0ms) [cache miss]
+Completed 200 OK in 5731ms (Views: 2230.7ms | ActiveRecord: 0.9ms)
+
+
+  Rendered stocks/_lookup.html.erb (2513.9ms) [cache miss]
+Completed 200 OK in 7984ms (Views: 2518.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=XPO&button=" for 127.0.0.1 at 2017-06-29 16:13:06 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"XPO", "button"=>""}
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=XPO&button=" for 127.0.0.1 at 2017-06-29 16:13:06 -0300
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "XPO"], ["LIMIT", 1]]
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"XPO", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "XPO"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (2434.1ms) [cache miss]
+Completed 200 OK in 7223ms (Views: 2436.8ms | ActiveRecord: 0.4ms)
+
+
+  Rendered stocks/_lookup.html.erb (4291.4ms) [cache miss]
+Completed 200 OK in 7789ms (Views: 4294.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-06-29 16:13:17 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered stocks/_lookup.html.erb (0.7ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 22ms (Views: 20.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=XPO&button=" for 127.0.0.1 at 2017-06-29 16:13:20 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"XPO", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.3ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "XPO"], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=XPO&button=" for 127.0.0.1 at 2017-06-29 16:13:20 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"XPO", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "XPO"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (2622.4ms) [cache miss]
+Completed 200 OK in 6094ms (Views: 2625.9ms | ActiveRecord: 0.5ms)
+
+
+  Rendered stocks/_lookup.html.erb (2178.3ms) [cache miss]
+Completed 200 OK in 11135ms (Views: 2188.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=TWTR&button=" for 127.0.0.1 at 2017-06-29 16:35:59 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"TWTR", "button"=>""}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "TWTR"], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=TWTR&button=" for 127.0.0.1 at 2017-06-29 16:35:59 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"TWTR", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "TWTR"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (1575.4ms) [cache miss]
+Completed 200 OK in 5060ms (Views: 1578.8ms | ActiveRecord: 0.3ms)
+
+
+  Rendered stocks/_lookup.html.erb (1643.3ms) [cache miss]
+Completed 200 OK in 5136ms (Views: 1657.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-06-29 16:36:12 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered stocks/_lookup.html.erb (6.7ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 57ms (Views: 52.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=TWTR&button=" for 127.0.0.1 at 2017-06-29 16:36:17 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"TWTR", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "TWTR"], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=TWTR&button=" for 127.0.0.1 at 2017-06-29 16:36:17 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"TWTR", "button"=>""}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "TWTR"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (1566.1ms) [cache miss]
+Completed 200 OK in 4087ms (Views: 1569.5ms | ActiveRecord: 0.2ms)
+
+
+  Rendered stocks/_lookup.html.erb (1805.2ms) [cache miss]
+Completed 200 OK in 4206ms (Views: 1811.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-06-29 16:36:25 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered stocks/_lookup.html.erb (0.8ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 30ms (Views: 27.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=TWTR&button=" for 127.0.0.1 at 2017-06-29 16:36:28 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"TWTR", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "TWTR"], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=TWTR&button=" for 127.0.0.1 at 2017-06-29 16:36:28 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"TWTR", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "TWTR"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (1621.6ms) [cache miss]
+Completed 200 OK in 4153ms (Views: 1626.1ms | ActiveRecord: 0.3ms)
+
+
+  Rendered stocks/_lookup.html.erb (1789.3ms) [cache miss]
+Completed 200 OK in 4511ms (Views: 1793.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=LALALALALALALALLALALA&button=" for 127.0.0.1 at 2017-06-29 16:36:41 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"LALALALALALALALLALALA", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=LALALALALALALALLALALA&button=" for 127.0.0.1 at 2017-06-29 16:36:41 -0300
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "LALALALALALALALLALALA"], ["LIMIT", 1]]
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"LALALALALALALALLALALA", "button"=>""}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "LALALALALALALALLALALA"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 749ms (ActiveRecord: 0.3ms)
+
+
+Completed 500 Internal Server Error in 762ms (ActiveRecord: 0.8ms)
+
+
+  
+  
+ActionView::MissingTemplate (Missing template stocks/search, application/search with {:locale=>[:en], :formats=>[:js, "application/ecmascript", "application/x-ecmascript", :html, :text, :js, :css, :ics, :csv, :vcf, :png, :jpeg, :gif, :bmp, :tiff, :svg, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip, :gzip], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/ti-proex/ruby_projects/section3_project/finance-tracker/app/views"
+  * "/var/lib/gems/2.3.0/gems/devise-bootstrap-views-0.0.11/app/views"
+  * "/var/lib/gems/2.3.0/gems/twitter-bootstrap-rails-4.0.0/app/views"
+  * "/var/lib/gems/2.3.0/gems/devise-4.3.0/app/views"
+):
+ActionView::MissingTemplate (Missing template stocks/search, application/search with {:locale=>[:en], :formats=>[:js, "application/ecmascript", "application/x-ecmascript", :html, :text, :js, :css, :ics, :csv, :vcf, :png, :jpeg, :gif, :bmp, :tiff, :svg, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip, :gzip], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/ti-proex/ruby_projects/section3_project/finance-tracker/app/views"
+  * "/var/lib/gems/2.3.0/gems/devise-bootstrap-views-0.0.11/app/views"
+  * "/var/lib/gems/2.3.0/gems/twitter-bootstrap-rails-4.0.0/app/views"
+  * "/var/lib/gems/2.3.0/gems/devise-4.3.0/app/views"
+):
+  
+  
+app/controllers/stocks_controller.rb:13:in `search'
+app/controllers/stocks_controller.rb:13:in `search'
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 16:46:40 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (51.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (0.2ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1772.2ms) [cache miss]
+Completed 200 OK in 4831ms (Views: 1784.4ms | ActiveRecord: 51.7ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 16:46:45 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (0.3ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1791.2ms) [cache miss]
+Completed 200 OK in 4045ms (Views: 1795.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-06-29 16:49:39 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered common/_spinner.html.erb (0.2ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1.4ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 427ms (Views: 415.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=TWTR&button=" for 127.0.0.1 at 2017-06-29 16:49:43 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"TWTR", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "TWTR"], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=TWTR&button=" for 127.0.0.1 at 2017-06-29 16:49:43 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"TWTR", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "TWTR"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (0.3ms) [cache miss]
+  Rendered common/_spinner.html.erb (0.0ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1597.0ms) [cache miss]
+Completed 200 OK in 4423ms (Views: 1600.5ms | ActiveRecord: 0.4ms)
+
+
+  Rendered stocks/_lookup.html.erb (2368.6ms) [cache miss]
+Completed 200 OK in 4999ms (Views: 2373.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-06-29 16:49:49 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered common/_spinner.html.erb (0.2ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1.5ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 35ms (Views: 33.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=TWTR&button=" for 127.0.0.1 at 2017-06-29 16:49:51 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"TWTR", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "TWTR"], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=TWTR&button=" for 127.0.0.1 at 2017-06-29 16:49:51 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"TWTR", "button"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "TWTR"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (0.2ms) [cache miss]
+  Rendered common/_spinner.html.erb (0.0ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1594.9ms) [cache miss]
+Completed 200 OK in 3925ms (Views: 1598.2ms | ActiveRecord: 0.5ms)
+
+
+  Rendered stocks/_lookup.html.erb (1627.9ms) [cache miss]
+Completed 200 OK in 4184ms (Views: 1630.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-06-29 16:49:56 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered common/_spinner.html.erb (0.2ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1.4ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 30ms (Views: 27.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 16:50:00 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.4ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 16:50:00 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (0.3ms) [cache miss]
+  Rendered common/_spinner.html.erb (0.0ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1383.6ms) [cache miss]
+Completed 200 OK in 3734ms (Views: 1386.7ms | ActiveRecord: 0.6ms)
+
+
+  Rendered stocks/_lookup.html.erb (1802.2ms) [cache miss]
+Completed 200 OK in 4103ms (Views: 1805.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=FB&button=" for 127.0.0.1 at 2017-06-29 16:50:14 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"FB", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "FB"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (0.2ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1776.1ms) [cache miss]
+Completed 200 OK in 4516ms (Views: 1779.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=FB&button=" for 127.0.0.1 at 2017-06-29 16:50:19 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"FB", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "FB"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (0.6ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1376.5ms) [cache miss]
+Completed 200 OK in 3443ms (Views: 1380.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=LALALALALALALALLALALA&button=" for 127.0.0.1 at 2017-06-29 16:50:38 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"LALALALALALALALLALALA", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "LALALALALALALALLALALA"], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=LALALALALALALALLALALA&button=" for 127.0.0.1 at 2017-06-29 16:50:38 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"LALALALALALALALLALALA", "button"=>""}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "LALALALALALALALLALALA"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 719ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::MissingTemplate (Missing template stocks/search, application/search with {:locale=>[:en], :formats=>[:js, "application/ecmascript", "application/x-ecmascript", :html, :text, :js, :css, :ics, :csv, :vcf, :png, :jpeg, :gif, :bmp, :tiff, :svg, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip, :gzip], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/ti-proex/ruby_projects/section3_project/finance-tracker/app/views"
+  * "/var/lib/gems/2.3.0/gems/devise-bootstrap-views-0.0.11/app/views"
+  * "/var/lib/gems/2.3.0/gems/twitter-bootstrap-rails-4.0.0/app/views"
+  * "/var/lib/gems/2.3.0/gems/devise-4.3.0/app/views"
+):
+  
+app/controllers/stocks_controller.rb:13:in `search'
+Completed 500 Internal Server Error in 905ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::MissingTemplate (Missing template stocks/search, application/search with {:locale=>[:en], :formats=>[:js, "application/ecmascript", "application/x-ecmascript", :html, :text, :js, :css, :ics, :csv, :vcf, :png, :jpeg, :gif, :bmp, :tiff, :svg, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip, :gzip], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/ti-proex/ruby_projects/section3_project/finance-tracker/app/views"
+  * "/var/lib/gems/2.3.0/gems/devise-bootstrap-views-0.0.11/app/views"
+  * "/var/lib/gems/2.3.0/gems/twitter-bootstrap-rails-4.0.0/app/views"
+  * "/var/lib/gems/2.3.0/gems/devise-4.3.0/app/views"
+):
+  
+app/controllers/stocks_controller.rb:13:in `search'
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 16:52:29 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 16:52:29 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (0.1ms) [cache miss]
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-06-29 16:52:33 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered common/_spinner.html.erb (0.2ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1.2ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 41ms (Views: 39.3ms | ActiveRecord: 0.2ms)
+
+
+  Rendered common/_spinner.html.erb (0.2ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1766.7ms) [cache miss]
+Completed 200 OK in 4563ms (Views: 1769.5ms | ActiveRecord: 0.3ms)
+
+
+  Rendered stocks/_lookup.html.erb (1369.8ms) [cache miss]
+Completed 200 OK in 5403ms (Views: 1372.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=FB&button=" for 127.0.0.1 at 2017-06-29 16:52:39 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"FB", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "FB"], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=FB&button=" for 127.0.0.1 at 2017-06-29 16:52:39 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"FB", "button"=>""}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "FB"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (0.2ms) [cache miss]
+  Rendered common/_spinner.html.erb (0.0ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1543.9ms) [cache miss]
+Completed 200 OK in 3826ms (Views: 1546.6ms | ActiveRecord: 0.2ms)
+
+
+  Rendered stocks/_lookup.html.erb (1391.5ms) [cache miss]
+Completed 200 OK in 4081ms (Views: 1401.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-06-29 16:56:29 -0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered common/_spinner.html.erb (0.2ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1.3ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 971ms (Views: 952.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=FB&button=" for 127.0.0.1 at 2017-06-29 16:56:32 -0300
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=FB&button=" for 127.0.0.1 at 2017-06-29 16:56:32 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"FB", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"FB", "button"=>""}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "FB"], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "FB"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (0.1ms) [cache miss]
+  Rendered common/_spinner.html.erb (0.0ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1780.3ms) [cache miss]
+Completed 200 OK in 4279ms (Views: 1784.4ms | ActiveRecord: 1.0ms)
+
+
+  Rendered stocks/_lookup.html.erb (1753.9ms) [cache miss]
+Completed 200 OK in 4490ms (Views: 1756.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-06-29 16:56:48 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered common/_spinner.html.erb (0.2ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1.1ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 26ms (Views: 22.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=&button=" for 127.0.0.1 at 2017-06-29 16:56:50 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", ""], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=&button=" for 127.0.0.1 at 2017-06-29 16:56:50 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", ""], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 662ms (ActiveRecord: 0.3ms)
+
+
+  
+StockQuote::NoDataForStockError (StockQuote::NoDataForStockError):
+  
+app/models/stock.rb:8:in `new_from_lookup'
+app/controllers/stocks_controller.rb:6:in `search'
+Completed 500 Internal Server Error in 684ms (ActiveRecord: 0.3ms)
+
+
+  
+StockQuote::NoDataForStockError (StockQuote::NoDataForStockError):
+  
+app/models/stock.rb:8:in `new_from_lookup'
+app/controllers/stocks_controller.rb:6:in `search'
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-06-29 16:56:55 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered common/_spinner.html.erb (0.2ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1.5ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 25ms (Views: 22.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=fb&button=" for 127.0.0.1 at 2017-06-29 16:56:57 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"fb", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "fb"], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=fb&button=" for 127.0.0.1 at 2017-06-29 16:56:57 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"fb", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "fb"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (0.3ms) [cache miss]
+  Rendered common/_spinner.html.erb (0.0ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1348.5ms) [cache miss]
+Completed 200 OK in 4022ms (Views: 1351.7ms | ActiveRecord: 0.3ms)
+
+
+  Rendered stocks/_lookup.html.erb (1557.8ms) [cache miss]
+Completed 200 OK in 4030ms (Views: 1560.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=%27&button=" for 127.0.0.1 at 2017-06-29 16:57:08 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"'", "button"=>""}
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=%27&button=" for 127.0.0.1 at 2017-06-29 16:57:08 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"'", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "'"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "'"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 661ms (ActiveRecord: 0.4ms)
+
+
+  
+NoMethodError (undefined method `name' for #<StockQuote::NoDataForStockError:0x007f3d50c478d8>):
+  
+app/models/stock.rb:9:in `new_from_lookup'
+app/controllers/stocks_controller.rb:6:in `search'
+Completed 500 Internal Server Error in 865ms (ActiveRecord: 0.3ms)
+
+
+  
+NoMethodError (undefined method `name' for #<StockQuote::NoDataForStockError:0x007f3d50d20520>):
+  
+app/models/stock.rb:9:in `new_from_lookup'
+app/controllers/stocks_controller.rb:6:in `search'
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-06-29 16:58:16 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered common/_spinner.html.erb (0.2ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1.4ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 91ms (Views: 88.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=FB&button=" for 127.0.0.1 at 2017-06-29 16:58:19 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"FB", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "FB"], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=FB&button=" for 127.0.0.1 at 2017-06-29 16:58:19 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"FB", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "FB"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (0.3ms) [cache miss]
+  Rendered common/_spinner.html.erb (0.0ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1353.1ms) [cache miss]
+Completed 200 OK in 4324ms (Views: 1356.1ms | ActiveRecord: 0.4ms)
+
+
+  Rendered stocks/_lookup.html.erb (1566.5ms) [cache miss]
+Completed 200 OK in 4679ms (Views: 1569.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=LALLALALA&button=" for 127.0.0.1 at 2017-06-29 16:58:27 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"LALLALALA", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "LALLALALA"], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=LALLALALA&button=" for 127.0.0.1 at 2017-06-29 16:58:27 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"LALLALALA", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "LALLALALA"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 703ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::MissingTemplate (Missing template stocks/search, application/search with {:locale=>[:en], :formats=>[:js, "application/ecmascript", "application/x-ecmascript", :html, :text, :js, :css, :ics, :csv, :vcf, :png, :jpeg, :gif, :bmp, :tiff, :svg, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip, :gzip], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/ti-proex/ruby_projects/section3_project/finance-tracker/app/views"
+  * "/var/lib/gems/2.3.0/gems/devise-bootstrap-views-0.0.11/app/views"
+  * "/var/lib/gems/2.3.0/gems/twitter-bootstrap-rails-4.0.0/app/views"
+  * "/var/lib/gems/2.3.0/gems/devise-4.3.0/app/views"
+):
+  
+app/controllers/stocks_controller.rb:13:in `search'
+Completed 500 Internal Server Error in 908ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::MissingTemplate (Missing template stocks/search, application/search with {:locale=>[:en], :formats=>[:js, "application/ecmascript", "application/x-ecmascript", :html, :text, :js, :css, :ics, :csv, :vcf, :png, :jpeg, :gif, :bmp, :tiff, :svg, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip, :gzip], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/ti-proex/ruby_projects/section3_project/finance-tracker/app/views"
+  * "/var/lib/gems/2.3.0/gems/devise-bootstrap-views-0.0.11/app/views"
+  * "/var/lib/gems/2.3.0/gems/twitter-bootstrap-rails-4.0.0/app/views"
+  * "/var/lib/gems/2.3.0/gems/devise-4.3.0/app/views"
+):
+  
+app/controllers/stocks_controller.rb:13:in `search'
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 16:58:32 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 16:58:32 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (0.2ms) [cache miss]
+  Rendered common/_spinner.html.erb (0.0ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1336.1ms) [cache miss]
+Completed 200 OK in 3829ms (Views: 1339.5ms | ActiveRecord: 0.2ms)
+
+
+  Rendered stocks/_lookup.html.erb (1547.5ms) [cache miss]
+Completed 200 OK in 4223ms (Views: 1550.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-06-29 16:58:37 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered common/_spinner.html.erb (0.1ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1.2ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 38ms (Views: 36.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 16:58:41 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-06-29 16:58:41 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.3ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (0.2ms) [cache miss]
+  Rendered common/_spinner.html.erb (0.0ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1579.7ms) [cache miss]
+Completed 200 OK in 3824ms (Views: 1583.0ms | ActiveRecord: 0.3ms)
+
+
+  Rendered stocks/_lookup.html.erb (1912.4ms) [cache miss]
+Completed 200 OK in 3957ms (Views: 1915.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=LALALA&button=" for 127.0.0.1 at 2017-06-29 16:58:47 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"LALALA", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=LALALA&button=" for 127.0.0.1 at 2017-06-29 16:58:47 -0300
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "LALALA"], ["LIMIT", 1]]
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"LALALA", "button"=>""}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "LALALA"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 714ms (ActiveRecord: 0.3ms)
+
+
+Completed 500 Internal Server Error in 724ms (ActiveRecord: 0.7ms)
+
+
+  
+  
+ActionView::MissingTemplate (Missing template stocks/search, application/search with {:locale=>[:en], :formats=>[:js, "application/ecmascript", "application/x-ecmascript", :html, :text, :js, :css, :ics, :csv, :vcf, :png, :jpeg, :gif, :bmp, :tiff, :svg, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip, :gzip], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/ti-proex/ruby_projects/section3_project/finance-tracker/app/views"
+  * "/var/lib/gems/2.3.0/gems/devise-bootstrap-views-0.0.11/app/views"
+  * "/var/lib/gems/2.3.0/gems/twitter-bootstrap-rails-4.0.0/app/views"
+  * "/var/lib/gems/2.3.0/gems/devise-4.3.0/app/views"
+):
+ActionView::MissingTemplate (Missing template stocks/search, application/search with {:locale=>[:en], :formats=>[:js, "application/ecmascript", "application/x-ecmascript", :html, :text, :js, :css, :ics, :csv, :vcf, :png, :jpeg, :gif, :bmp, :tiff, :svg, :mpeg, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip, :gzip], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/ti-proex/ruby_projects/section3_project/finance-tracker/app/views"
+  * "/var/lib/gems/2.3.0/gems/devise-bootstrap-views-0.0.11/app/views"
+  * "/var/lib/gems/2.3.0/gems/twitter-bootstrap-rails-4.0.0/app/views"
+  * "/var/lib/gems/2.3.0/gems/devise-4.3.0/app/views"
+):
+  
+  
+app/controllers/stocks_controller.rb:13:in `search'
+app/controllers/stocks_controller.rb:13:in `search'
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=FB&button=" for 127.0.0.1 at 2017-06-29 16:58:52 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"FB", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "FB"], ["LIMIT", 1]]
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=FB&button=" for 127.0.0.1 at 2017-06-29 16:58:52 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"FB", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "FB"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (0.4ms) [cache miss]
+  Rendered common/_spinner.html.erb (0.0ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1362.8ms) [cache miss]
+Completed 200 OK in 3602ms (Views: 1375.4ms | ActiveRecord: 0.3ms)
+
+
+  Rendered stocks/_lookup.html.erb (1555.3ms) [cache miss]
+Completed 200 OK in 3784ms (Views: 1557.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-06-29 16:59:29 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered common/_spinner.html.erb (0.2ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1.1ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 26ms (Views: 24.2ms | ActiveRecord: 0.2ms)
+
+
