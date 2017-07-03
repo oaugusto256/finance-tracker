@@ -2089,3 +2089,585 @@ Processing by UsersController#my_portfolio as HTML
 Completed 200 OK in 26ms (Views: 24.2ms | ActiveRecord: 0.2ms)
 
 
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUserStocks (20170703184823)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "user_stocks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "stock_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170703184823"]]
+  [1m[35m (83.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" INNER JOIN "user_stocks" ON "stocks"."id" = "user_stocks"."stock_id" WHERE "user_stocks"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 11]]
+Started GET "/" for 127.0.0.1 at 2017-07-03 16:06:29 -0300
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+Completed 401 Unauthorized in 23ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-07-03 16:06:30 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (4.8ms) [cache miss]
+  Rendered devise/sessions/new.html.erb within layouts/application (112.4ms)
+Completed 200 OK in 2899ms (Views: 2868.2ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-07-03 16:06:41 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ojLqL5l2Cvohzv+1AoJJIM2aU369skzq6bRGnK4LtKpO5bIcQBTFYJdF3hsRC4PIbKDvtBs+SAxWLssIKc8FBQ==", "user"=>{"email"=>"tavioalves@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "tavioalves@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2017-07-03 19:06:41.977589"], ["last_sign_in_at", "2017-06-29 18:58:19.190804"], ["sign_in_count", 7], ["updated_at", "2017-07-03 19:06:41.978511"], ["id", 1]]
+  [1m[35m (66.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/
+Completed 302 Found in 398ms (ActiveRecord: 68.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-03 16:06:42 -0300
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 52ms (Views: 26.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-07-03 16:06:52 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered common/_spinner.html.erb (0.7ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (27.1ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (34.5ms)
+Completed 200 OK in 77ms (Views: 63.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-07-03 16:06:54 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (0.4ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1357.9ms) [cache miss]
+Completed 200 OK in 3991ms (Views: 1364.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-07-03 16:06:58 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (0.5ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1515.9ms) [cache miss]
+Completed 200 OK in 3674ms (Views: 1519.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-07-03 16:36:50 -0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered common/_spinner.html.erb (0.3ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (20.9ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (55.4ms)
+Completed 200 OK in 1930ms (Views: 1869.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-07-03 16:36:56 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (0.2ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1597.0ms) [cache miss]
+Completed 200 OK in 4609ms (Views: 1600.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-07-03 16:37:01 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+Started POST "/user_stocks?stock_id=&stock_ticker=GOOG&user=1" for 127.0.0.1 at 2017-07-03 16:37:01 -0300
+  Rendered common/_spinner.html.erb (0.3ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1609.3ms) [cache miss]
+Completed 200 OK in 3929ms (Views: 1612.9ms | ActiveRecord: 0.3ms)
+
+
+Processing by UserStocksController#create as HTML
+  Parameters: {"authenticity_token"=>"UVerxpKCPuS/k0Xgpoh2i7/tP2IDTE6qjeKLF96GVoJn+w3yhK0XowOHN2zYIg+NsGE258eWyzSygvx/bGDlqg==", "stock_id"=>"", "stock_ticker"=>"GOOG", "user"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (18.5ms)[0m  [1m[32mINSERT INTO "stocks" ("ticker", "name", "last_price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["ticker", "GOOG"], ["name", "Alphabet Inc."], ["last_price", 912.18], ["created_at", "2017-07-03 19:37:08.421035"], ["updated_at", "2017-07-03 19:37:08.421035"]]
+  [1m[35m (85.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "user_stocks" ("user_id", "stock_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["stock_id", 1], ["created_at", "2017-07-03 19:37:08.605805"], ["updated_at", "2017-07-03 19:37:08.605805"]]
+  [1m[35m (105.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/my_portfolio
+Completed 302 Found in 3595ms (ActiveRecord: 211.0ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-07-03 16:37:08 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered common/_spinner.html.erb (0.7ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (2.9ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 45ms (Views: 43.2ms | ActiveRecord: 0.2ms)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" INNER JOIN "user_stocks" ON "stocks"."id" = "user_stocks"."stock_id" WHERE "user_stocks"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 11]]
+Started GET "/" for 127.0.0.1 at 2017-07-03 16:57:32 -0300
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 1762ms (Views: 1707.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-07-03 16:57:41 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered common/_spinner.html.erb (1.1ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (27.9ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (28.7ms)
+Completed 200 OK in 104ms (Views: 83.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-07-03 16:57:43 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.3ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (0.2ms) [cache miss]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_stocks" WHERE "user_stocks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mCACHE Stock Load (0.0ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (2015.0ms)
+Completed 500 Internal Server Error in 2058ms (ActiveRecord: 1.7ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `user_stock' for #<User:0x00000006610200>
+Did you mean?  user_stocks
+               user_stocks=):
+    19: 			<strong>Symbol:</strong> <%= @stock.ticker %>
+    20: 			<strong>Namel:</strong> <%= @stock.name %>
+    21: 			<strong>Price:</strong> <%= @stock.price %>
+    22: 			<% if current_user.can_add_stock?(@stock.ticker) %>
+    23: 			<%= link_to "Add to my Stocks", user_stocks_path(user: current_user, stock_ticker: @stock.ticker, stock_id: @stock.id ? @stock.id: ''), class: 'btn btn-xs btn-success', method: :post %>
+    24: 			<% else %>
+    25: 				<span class="label label-default">
+  
+app/models/user.rb:21:in `stock_already_added?'
+app/models/user.rb:11:in `can_add_stock?'
+app/views/stocks/_lookup.html.erb:22:in `_app_views_stocks__lookup_html_erb___4122460852236150971_56818440'
+app/controllers/stocks_controller.rb:11:in `search'
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-07-03 16:57:45 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (0.2ms) [cache miss]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_stocks" WHERE "user_stocks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mCACHE Stock Load (0.0ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (1483.3ms)
+Completed 500 Internal Server Error in 1488ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `user_stock' for #<User:0x007f80e469db58>
+Did you mean?  user_stocks
+               user_stocks=):
+    19: 			<strong>Symbol:</strong> <%= @stock.ticker %>
+    20: 			<strong>Namel:</strong> <%= @stock.name %>
+    21: 			<strong>Price:</strong> <%= @stock.price %>
+    22: 			<% if current_user.can_add_stock?(@stock.ticker) %>
+    23: 			<%= link_to "Add to my Stocks", user_stocks_path(user: current_user, stock_ticker: @stock.ticker, stock_id: @stock.id ? @stock.id: ''), class: 'btn btn-xs btn-success', method: :post %>
+    24: 			<% else %>
+    25: 				<span class="label label-default">
+  
+app/models/user.rb:21:in `stock_already_added?'
+app/models/user.rb:11:in `can_add_stock?'
+app/views/stocks/_lookup.html.erb:22:in `_app_views_stocks__lookup_html_erb___4122460852236150971_70095782323480'
+app/controllers/stocks_controller.rb:11:in `search'
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-07-03 16:57:47 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (0.3ms) [cache miss]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_stocks" WHERE "user_stocks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mCACHE Stock Load (0.0ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (1364.6ms)
+Completed 500 Internal Server Error in 1373ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `user_stock' for #<User:0x00000007936500>
+Did you mean?  user_stocks
+               user_stocks=):
+    19: 			<strong>Symbol:</strong> <%= @stock.ticker %>
+    20: 			<strong>Namel:</strong> <%= @stock.name %>
+    21: 			<strong>Price:</strong> <%= @stock.price %>
+    22: 			<% if current_user.can_add_stock?(@stock.ticker) %>
+    23: 			<%= link_to "Add to my Stocks", user_stocks_path(user: current_user, stock_ticker: @stock.ticker, stock_id: @stock.id ? @stock.id: ''), class: 'btn btn-xs btn-success', method: :post %>
+    24: 			<% else %>
+    25: 				<span class="label label-default">
+  
+app/models/user.rb:21:in `stock_already_added?'
+app/models/user.rb:11:in `can_add_stock?'
+app/views/stocks/_lookup.html.erb:22:in `_app_views_stocks__lookup_html_erb___4122460852236150971_63543180'
+app/controllers/stocks_controller.rb:11:in `search'
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-07-03 16:57:49 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.4ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (1.3ms) [cache miss]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_stocks" WHERE "user_stocks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mCACHE Stock Load (0.0ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (2674.3ms)
+Completed 500 Internal Server Error in 2683ms (ActiveRecord: 1.3ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `user_stock' for #<User:0x007f80ec9e4980>
+Did you mean?  user_stocks
+               user_stocks=):
+    19: 			<strong>Symbol:</strong> <%= @stock.ticker %>
+    20: 			<strong>Namel:</strong> <%= @stock.name %>
+    21: 			<strong>Price:</strong> <%= @stock.price %>
+    22: 			<% if current_user.can_add_stock?(@stock.ticker) %>
+    23: 			<%= link_to "Add to my Stocks", user_stocks_path(user: current_user, stock_ticker: @stock.ticker, stock_id: @stock.id ? @stock.id: ''), class: 'btn btn-xs btn-success', method: :post %>
+    24: 			<% else %>
+    25: 				<span class="label label-default">
+  
+app/models/user.rb:21:in `stock_already_added?'
+app/models/user.rb:11:in `can_add_stock?'
+app/views/stocks/_lookup.html.erb:22:in `_app_views_stocks__lookup_html_erb___4122460852236150971_59717220'
+app/controllers/stocks_controller.rb:11:in `search'
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=FB&button=" for 127.0.0.1 at 2017-07-03 16:57:52 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"FB", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "FB"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (0.7ms) [cache miss]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_stocks" WHERE "user_stocks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mCACHE Stock Load (0.0ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "FB"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (1426.1ms) [cache miss]
+Completed 200 OK in 3708ms (Views: 1428.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=FB&button=" for 127.0.0.1 at 2017-07-03 16:57:56 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"FB", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "FB"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (0.2ms) [cache miss]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_stocks" WHERE "user_stocks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mCACHE Stock Load (0.0ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "FB"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (1487.1ms) [cache miss]
+Completed 200 OK in 3760ms (Views: 1489.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/user_stocks?stock_id=&stock_ticker=FB&user=1" for 127.0.0.1 at 2017-07-03 16:58:00 -0300
+Processing by UserStocksController#create as HTML
+  Parameters: {"authenticity_token"=>"SSI+sNGEhiRhLvk0psbuWW2AB8QtgN8MJ8zcj1vYwlZ/jpiEx6uvY906i7jYbJdfYgwOQelaWpIYrKvn6T5xfg==", "stock_id"=>"", "stock_ticker"=>"FB", "user"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "FB"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (8.2ms)[0m  [1m[32mINSERT INTO "stocks" ("ticker", "name", "last_price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["ticker", "FB"], ["name", "Facebook, Inc."], ["last_price", 151.9], ["created_at", "2017-07-03 19:58:02.912308"], ["updated_at", "2017-07-03 19:58:02.912308"]]
+  [1m[35m (61.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "user_stocks" ("user_id", "stock_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["stock_id", 2], ["created_at", "2017-07-03 19:58:02.993209"], ["updated_at", "2017-07-03 19:58:02.993209"]]
+  [1m[35m (90.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/my_portfolio
+Completed 302 Found in 2596ms (ActiveRecord: 160.9ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-07-03 16:58:03 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered common/_spinner.html.erb (0.2ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1.3ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 32ms (Views: 29.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=FB&button=" for 127.0.0.1 at 2017-07-03 16:58:05 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"FB", "button"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.7ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "FB"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (0.3ms) [cache miss]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_stocks" WHERE "user_stocks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mCACHE Stock Load (0.0ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "FB"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (1361.8ms)
+Completed 500 Internal Server Error in 1372ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `user_stock' for #<User:0x007f80ec9f90d8>
+Did you mean?  user_stocks
+               user_stocks=):
+    19: 			<strong>Symbol:</strong> <%= @stock.ticker %>
+    20: 			<strong>Namel:</strong> <%= @stock.name %>
+    21: 			<strong>Price:</strong> <%= @stock.price %>
+    22: 			<% if current_user.can_add_stock?(@stock.ticker) %>
+    23: 			<%= link_to "Add to my Stocks", user_stocks_path(user: current_user, stock_ticker: @stock.ticker, stock_id: @stock.id ? @stock.id: ''), class: 'btn btn-xs btn-success', method: :post %>
+    24: 			<% else %>
+    25: 				<span class="label label-default">
+  
+app/models/user.rb:21:in `stock_already_added?'
+app/models/user.rb:11:in `can_add_stock?'
+app/views/stocks/_lookup.html.erb:22:in `_app_views_stocks__lookup_html_erb___4122460852236150971_70095851198760'
+app/controllers/stocks_controller.rb:11:in `search'
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=FB&button=" for 127.0.0.1 at 2017-07-03 16:58:07 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"FB", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "FB"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (0.3ms) [cache miss]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_stocks" WHERE "user_stocks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mCACHE Stock Load (0.0ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "FB"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (1490.5ms)
+Completed 500 Internal Server Error in 1495ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `user_stock' for #<User:0x007f80e48f3678>
+Did you mean?  user_stocks
+               user_stocks=):
+    19: 			<strong>Symbol:</strong> <%= @stock.ticker %>
+    20: 			<strong>Namel:</strong> <%= @stock.name %>
+    21: 			<strong>Price:</strong> <%= @stock.price %>
+    22: 			<% if current_user.can_add_stock?(@stock.ticker) %>
+    23: 			<%= link_to "Add to my Stocks", user_stocks_path(user: current_user, stock_ticker: @stock.ticker, stock_id: @stock.id ? @stock.id: ''), class: 'btn btn-xs btn-success', method: :post %>
+    24: 			<% else %>
+    25: 				<span class="label label-default">
+  
+app/models/user.rb:21:in `stock_already_added?'
+app/models/user.rb:11:in `can_add_stock?'
+app/views/stocks/_lookup.html.erb:22:in `_app_views_stocks__lookup_html_erb___4122460852236150971_70095783496800'
+app/controllers/stocks_controller.rb:11:in `search'
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-07-03 17:09:30 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered common/_spinner.html.erb (0.3ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (29.5ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (30.5ms)
+Completed 200 OK in 551ms (Views: 467.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=FB&button=" for 127.0.0.1 at 2017-07-03 17:09:34 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"FB", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "FB"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (0.3ms) [cache miss]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_stocks" WHERE "user_stocks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mCACHE Stock Load (0.0ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "FB"], ["LIMIT", 1]]
+  [1m[36mUserStock Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "user_stocks" WHERE "user_stocks"."user_id" = ? AND "user_stocks"."stock_id" = ? LIMIT ?[0m  [["user_id", 1], ["stock_id", 2], ["LIMIT", 1]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_stocks" WHERE "user_stocks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mCACHE Stock Load (0.0ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "FB"], ["LIMIT", 1]]
+  [1m[36mCACHE UserStock Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "user_stocks" WHERE "user_stocks"."user_id" = ? AND "user_stocks"."stock_id" = ? LIMIT ?[0m  [["user_id", 1], ["stock_id", 2], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (2266.7ms) [cache miss]
+Completed 200 OK in 2324ms (Views: 2280.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=FB&button=" for 127.0.0.1 at 2017-07-03 17:09:37 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"FB", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "FB"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (0.7ms) [cache miss]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_stocks" WHERE "user_stocks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mCACHE Stock Load (0.0ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "FB"], ["LIMIT", 1]]
+  [1m[36mUserStock Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "user_stocks" WHERE "user_stocks"."user_id" = ? AND "user_stocks"."stock_id" = ? LIMIT ?[0m  [["user_id", 1], ["stock_id", 2], ["LIMIT", 1]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_stocks" WHERE "user_stocks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mCACHE Stock Load (0.0ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "FB"], ["LIMIT", 1]]
+  [1m[36mCACHE UserStock Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "user_stocks" WHERE "user_stocks"."user_id" = ? AND "user_stocks"."stock_id" = ? LIMIT ?[0m  [["user_id", 1], ["stock_id", 2], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (1476.4ms) [cache miss]
+Completed 200 OK in 1483ms (Views: 1480.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-07-03 17:09:44 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (0.3ms) [cache miss]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_stocks" WHERE "user_stocks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mCACHE Stock Load (0.0ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  [1m[36mUserStock Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "user_stocks" WHERE "user_stocks"."user_id" = ? AND "user_stocks"."stock_id" = ? LIMIT ?[0m  [["user_id", 1], ["stock_id", 1], ["LIMIT", 1]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_stocks" WHERE "user_stocks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mCACHE Stock Load (0.0ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  [1m[36mCACHE UserStock Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "user_stocks" WHERE "user_stocks"."user_id" = ? AND "user_stocks"."stock_id" = ? LIMIT ?[0m  [["user_id", 1], ["stock_id", 1], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (13228.0ms) [cache miss]
+Completed 200 OK in 13234ms (Views: 13231.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-07-03 17:09:57 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.6ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (0.2ms) [cache miss]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_stocks" WHERE "user_stocks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mCACHE Stock Load (0.0ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  [1m[36mUserStock Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "user_stocks" WHERE "user_stocks"."user_id" = ? AND "user_stocks"."stock_id" = ? LIMIT ?[0m  [["user_id", 1], ["stock_id", 1], ["LIMIT", 1]]
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_stocks" WHERE "user_stocks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mCACHE Stock Load (0.0ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  [1m[36mCACHE UserStock Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "user_stocks" WHERE "user_stocks"."user_id" = ? AND "user_stocks"."stock_id" = ? LIMIT ?[0m  [["user_id", 1], ["stock_id", 1], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (1516.2ms) [cache miss]
+Completed 200 OK in 1526ms (Views: 1519.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=BP&button=" for 127.0.0.1 at 2017-07-03 17:10:02 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"BP", "button"=>""}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.3ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "BP"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (0.3ms) [cache miss]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_stocks" WHERE "user_stocks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mCACHE Stock Load (0.0ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "BP"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (1349.2ms) [cache miss]
+Completed 200 OK in 3519ms (Views: 1351.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=BP&button=" for 127.0.0.1 at 2017-07-03 17:10:06 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"BP", "button"=>""}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "BP"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (0.2ms) [cache miss]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_stocks" WHERE "user_stocks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mCACHE Stock Load (0.0ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "BP"], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (1655.1ms) [cache miss]
+Completed 200 OK in 3935ms (Views: 1658.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-07-03 17:27:48 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered common/_spinner.html.erb (0.2ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1.5ms) [cache miss]
+  [1m[36mStock Load (0.7ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" INNER JOIN "user_stocks" ON "stocks"."id" = "user_stocks"."stock_id" WHERE "user_stocks"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered stocks/_list.html.erb (3319.3ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (3322.0ms)
+Completed 200 OK in 3461ms (Views: 3408.4ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-07-03 17:29:52 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered common/_spinner.html.erb (0.2ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1.3ms) [cache miss]
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" INNER JOIN "user_stocks" ON "stocks"."id" = "user_stocks"."stock_id" WHERE "user_stocks"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered stocks/_list.html.erb (3256.0ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (3258.4ms)
+Completed 200 OK in 3313ms (Views: 3287.2ms | ActiveRecord: 2.2ms)
+
+
+Started DELETE "/user_stocks/1" for 127.0.0.1 at 2017-07-03 17:30:00 -0300
+Processing by UserStocksController#destroy as HTML
+  Parameters: {"authenticity_token"=>"+zPcKrro6q6LXFyNuoQIGgLMFqunm0PdOPZxJty5d23Nn3oerMfD6TdILgHELnEcDUAfLmNBxkMHlgZObl/ERQ==", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserStock Load (0.1ms)[0m  [1m[34mSELECT  "user_stocks".* FROM "user_stocks" WHERE "user_stocks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (19.5ms)[0m  [1m[31mDELETE FROM "user_stocks" WHERE "user_stocks"."id" = ?[0m  [["id", 1]]
+  [1m[35m (62.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/my_portfolio
+Completed 302 Found in 95ms (ActiveRecord: 82.8ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-07-03 17:30:00 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered common/_spinner.html.erb (0.2ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1.4ms) [cache miss]
+  [1m[36mStock Load (0.1ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" INNER JOIN "user_stocks" ON "stocks"."id" = "user_stocks"."stock_id" WHERE "user_stocks"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered stocks/_list.html.erb (1593.8ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (1596.6ms)
+Completed 200 OK in 1637ms (Views: 1634.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-07-03 17:30:07 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.3ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (0.2ms) [cache miss]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_stocks" WHERE "user_stocks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mCACHE Stock Load (0.0ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  [1m[36mUserStock Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "user_stocks" WHERE "user_stocks"."user_id" = ? AND "user_stocks"."stock_id" = ? LIMIT ?[0m  [["user_id", 1], ["stock_id", 1], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (1633.4ms) [cache miss]
+Completed 200 OK in 1642ms (Views: 1636.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/search_stocks?utf8=%E2%9C%93&stock=GOOG&button=" for 127.0.0.1 at 2017-07-03 17:30:09 -0300
+Processing by StocksController#search as JS
+  Parameters: {"utf8"=>"✓", "stock"=>"GOOG", "button"=>""}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  Rendered common/_spinner.html.erb (0.2ms) [cache miss]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "user_stocks" WHERE "user_stocks"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[36mCACHE Stock Load (0.0ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."ticker" = ? ORDER BY "stocks"."id" ASC LIMIT ?[0m  [["ticker", "GOOG"], ["LIMIT", 1]]
+  [1m[36mUserStock Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "user_stocks" WHERE "user_stocks"."user_id" = ? AND "user_stocks"."stock_id" = ? LIMIT ?[0m  [["user_id", 1], ["stock_id", 1], ["LIMIT", 1]]
+  Rendered stocks/_lookup.html.erb (1497.0ms) [cache miss]
+Completed 200 OK in 1503ms (Views: 1499.4ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/user_stocks?stock_id=1&stock_ticker=GOOG&user=1" for 127.0.0.1 at 2017-07-03 17:30:12 -0300
+Processing by UserStocksController#create as HTML
+  Parameters: {"authenticity_token"=>"k63mjCePhRTI2ESQdj/ilmqkiCly2pugj/TnBxR17DOlAUC4MaCsU3TMNhwIlZuQZSiBrLYAHj6wlJBvppNfGw==", "stock_id"=>"1", "stock_ticker"=>"GOOG", "user"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT  "stocks".* FROM "stocks" WHERE "stocks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "user_stocks" ("user_id", "stock_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["stock_id", 1], ["created_at", "2017-07-03 20:30:12.566974"], ["updated_at", "2017-07-03 20:30:12.566974"]]
+  [1m[35m (246.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://0.0.0.0:3000/my_portfolio
+Completed 302 Found in 260ms (ActiveRecord: 246.8ms)
+
+
+Started GET "/my_portfolio" for 127.0.0.1 at 2017-07-03 17:30:12 -0300
+Processing by UsersController#my_portfolio as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/my_portfolio.html.erb within layouts/application
+  Rendered common/_spinner.html.erb (0.4ms) [cache miss]
+  Rendered stocks/_lookup.html.erb (1.7ms) [cache miss]
+  [1m[36mStock Load (0.2ms)[0m  [1m[34mSELECT "stocks".* FROM "stocks" INNER JOIN "user_stocks" ON "stocks"."id" = "user_stocks"."stock_id" WHERE "user_stocks"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered stocks/_list.html.erb (2683.2ms) [cache miss]
+  Rendered users/my_portfolio.html.erb within layouts/application (2686.2ms)
+Completed 200 OK in 2714ms (Views: 2711.9ms | ActiveRecord: 0.4ms)
+
+
